@@ -24,6 +24,12 @@ providers: [
   StravaProvider({
     clientId: process.env.STRAVA_CLIENT_ID,
     clientSecret: process.env.STRAVA_CLIENT_SECRET,
+    // Override the `redirect_uri` in production so you are not redirected back to localhost
+    authorization: {
+      params: {
+        redirect_uri: process.env.VERCEL_URL || process.env.NEXTAUTH_URL,
+      },
+    },
   })
 ]
 ...
