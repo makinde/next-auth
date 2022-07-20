@@ -26,7 +26,7 @@ providers: [
     clientSecret: process.env.STRAVA_CLIENT_SECRET,
     authorization: {
       params: {
-        redirect_uri: process.env.NEXTAUTH_URL,
+        redirect_uri: `${process.env.NEXTAUTH_URL}/api/auth/callback/strava`,
       },
     },
   })
